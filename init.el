@@ -56,7 +56,8 @@ values."
            mu4e-maildir "~/.mail/utexas"
            mu4e-drafts-folder "/[Gmail]/.Drafts"
            mu4e-sent-folder   "/[Gmail]/.Sent Mail"
-           mu4e-trash-folder  "/[Gmail]/.Trash")
+           mu4e-trash-folder  "/[Gmail]/.Trash"
+           mu4e-enable-notifications t)
      (org :variables
           org-directory "~/Dropbox/org/"
           org-agenda-files (list (concat org-directory "todo.org")))

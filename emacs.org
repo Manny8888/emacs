@@ -358,28 +358,28 @@ This function ([[http://pragmaticemacs.com/emacs/insert-file-name/][credit]]) le
 ** Ivy and references (ivy-bibtex)
    #+BEGIN_SRC emacs-lisp
      (bind-keys* ("C-c C-r" . ivy-bibtex))
-     (setq bibtex-autokey-titleword-length 0
-           bibtex-autokey-titleword-separator ""
-           bibtex-autokey-titlewords 0
-           bibtex-autokey-year-length 4
-           bibtex-autokey-year-title-separator "")
-     (setq bibtex-align-at-equal-sign t)
-           bibtex-completion-notes-template-one-file
-           "\n* TODO ${year} - ${title}\n  :PROPERTIES:\n  :Custom_ID: ${=key=}\n  :AUTHOR: ${author}\n  :JOURNAL: ${journal}\n  :YEAR: ${year}\n  :VOLUME: ${volume}\n  :PAGES: ${pages}\n  :DOI: ${doi}\n  :URL: ${url}\n :END:\n"
-     (setq bibtex-completion-cite-commands '("autocite" "textcite" "citep" "citet" "citeauthor" "citeyear" "Citep" "Citet"))
-     (setq ivy-bibtex-default-action #'ivy-bibtex-insert-citation)
+(setq bibtex-autokey-titleword-length 0
+      bibtex-autokey-titleword-separator ""
+      bibtex-autokey-titlewords 0
+      bibtex-autokey-year-length 4
+      bibtex-autokey-year-title-separator "")
+(setq bibtex-align-at-equal-sign t)
+(setq bibtex-completion-notes-template-one-file
+      "\n* TODO ${year} - ${title}\n  :PROPERTIES:\n  :Custom_ID: ${=key=}\n  :AUTHOR: ${author}\n  :JOURNAL: ${journal}\n  :YEAR: ${year}\n  :VOLUME: ${volume}\n  :PAGES: ${pages}\n  :DOI: ${doi}\n  :URL: ${url}\n :END:\n")
+(setq bibtex-completion-cite-commands '("autocite" "textcite" "citep" "citet" "citeauthor" "citeyear" "Citep" "Citet"))
+(setq ivy-bibtex-default-action #'ivy-bibtex-insert-citation)
 
-     ;; temporary fix so that I can bind C-c C-r globally yet still have
-     ;; ivy-bibtex insert autocite: citations in org-mode
-     (defun bibtex-completion-format-citation-org-autocite (keys)
-       "Formatter for org autocite references."
-       (s-join ", "
-               (--map (format "autocite:%s" it) keys)))
-     (setq bibtex-completion-format-citation-functions
-           '((org-mode . bibtex-completion-format-citation-org-autocite)
-             (latex-mode . bibtex-completion-format-citation-cite)
-             (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
-             (default . bibtex-completion-format-citation-default)))
+;; temporary fix so that I can bind C-c C-r globally yet still have
+;; ivy-bibtex insert autocite: citations in org-mode
+(defun bibtex-completion-format-citation-org-autocite (keys)
+  "Formatter for org autocite references."
+  (s-join ", "
+          (--map (format "autocite:%s" it) keys)))
+(setq bibtex-completion-format-citation-functions
+      '((org-mode . bibtex-completion-format-citation-org-autocite)
+        (latex-mode . bibtex-completion-format-citation-cite)
+        (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
+        (default . bibtex-completion-format-citation-default)))
    #+END_SRC
 
 * Org
@@ -869,6 +869,17 @@ Magit is better than the command line for git. I don't modify much. I just bind 
             )
    #+END_SRC
 
+** Alerts
+#+BEGIN_SRC emacs-lisp
+  (with-eval-after-load 'mu4e-alert
+    (mu4e-alert-set-default-style 'libnotify)
+    (setq mu4e-enable-mode-line t))
+
+  (setq mu4e-alert-interesting-mail-query
+        (concat
+         "flag:unread"
+         " AND maildir:\"/INBOX\""))
+#+END_SRC
 * Feed reader (elfeed)
 
 I use [[https://github.com/skeeto/elfeed][elfeed]] to manage some RSS links:
