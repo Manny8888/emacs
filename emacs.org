@@ -332,6 +332,12 @@ This function ([[http://pragmaticemacs.com/emacs/insert-file-name/][credit]]) le
 
 * References (ivy-bibtex)
    #+BEGIN_SRC emacs-lisp
+     (setq org-ref-default-bibliography '("~/Dropbox/bibliography/references.bib")
+           org-ref-pdf-directory "~/Dropbox/bibliography/bibtex-pdfs/"
+           org-ref-bibliography-notes "~/Dropbox/bibliography/notes.org")
+     (setq bibtex-completion-bibliography '("~/Dropbox/bibliography/references.bib")
+           bibtex-completion-library-path "~/Dropbox/bibliography/bibtex-pdfs"
+           bibtex-completion-notes-path "~/Dropbox/bibliography/notes.org")
      (bind-keys* ("C-c C-r" . ivy-bibtex))
      (setq bibtex-autokey-titleword-length 0
            bibtex-autokey-titleword-separator ""

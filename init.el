@@ -41,10 +41,7 @@ values."
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t)
      better-defaults
-     (bibtex :variables
-             org-ref-default-bibliography '("~/Dropbox/bibliography/references.bib")
-             org-ref-pdf-directory "~/Dropbox/bibliography/bibtex-pdfs/"
-             org-ref-bibliography-notes "~/Dropbox/bibliography/notes.org")
+     bibtex
      (elfeed :variables
              rmh-elfeed-org-files (list "~/.spacemacs.d/elfeed.org")
              elfeed-search-filter "@1-week-ago +unread "
