@@ -126,7 +126,17 @@ By default, =M-s M-w= searches for text in the region. I change it to search for
   (advice-add 'eww-search-words :around #'jab/eww-search)
 #+END_SRC
 
-** Miscellaneous 
+** Scrolling
+
+#+BEGIN_SRC emacs-lisp
+  (use-package view
+    :bind
+    ("C-v" . View-scroll-half-page-forward)
+    ("M-v" . View-scroll-half-page-backward))
+
+#+END_SRC
+
+** Miscellaneous
    Here are a bunch of things I want emacs to do (or not) but don't seem to fit in other sections.
 
 *** Prettify symbols
