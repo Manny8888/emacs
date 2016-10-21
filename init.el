@@ -51,6 +51,7 @@ values."
              elfeed-db-directory "~/Dropbox/.elfeed")
      emacs-lisp
      ess
+     finance
      git
      latex
      markdown
