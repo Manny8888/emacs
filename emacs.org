@@ -26,6 +26,7 @@
 
   #+BEGIN_SRC emacs-lisp
     (global-set-key (kbd "C-z") #'undo)
+    (define-key evil-emacs-state-map (kbd "C-z") #'undo)
   #+END_SRC
 
     I don't work much with emacs-lisp, so the scratch buffer shouldn't be in emacs-lisp mode:
