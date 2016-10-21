@@ -860,6 +860,7 @@ I use [[https://github.com/skeeto/elfeed][elfeed]] to manage some RSS links:
      :map elfeed-search-mode-map
      ("q" . bjm/elfeed-save-db-and-bury)))
   (spacemacs/set-leader-keys "af" #'bjm/elfeed-load-db-and-open)
+  (setq elfeed-goodies/entry-pane-position 'bottom)
   ;; thanks - http://pragmaticemacs.com/emacs/read-your-rss-feeds-in-emacs-with-elfeed/
   ;; though slightly modified
   ;; functions to support syncing .elfeed between machines
