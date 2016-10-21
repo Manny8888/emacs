@@ -329,7 +329,7 @@ This function ([[http://pragmaticemacs.com/emacs/insert-file-name/][credit]]) le
               (insert (file-relative-name filename)))))
    #+END_SRC
 
-*  References (ivy-bibtex)
+* References (ivy-bibtex)
    #+BEGIN_SRC emacs-lisp
      (bind-keys* ("C-c C-r" . ivy-bibtex))
      (setq bibtex-autokey-titleword-length 0
