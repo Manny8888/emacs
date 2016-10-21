@@ -60,7 +60,12 @@ values."
            mu4e-drafts-folder "/[Gmail]/.Drafts"
            mu4e-sent-folder   "/[Gmail]/.Sent Mail"
            mu4e-trash-folder  "/[Gmail]/.Trash"
-           mu4e-enable-notifications t)
+           mu4e-enable-notifications t
+           mu4e-enable-mode-line t
+           mu4e-alert-interesting-mail-query
+           (concat
+            "flag:unread"
+            " AND maildir:\"/INBOX\""))
      (org :variables
           org-directory "~/Dropbox/org/"
           org-agenda-files (list (concat org-directory "todo.org")))

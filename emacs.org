@@ -842,14 +842,7 @@ Magit is better than the command line for git. I don't modify much. I just bind 
 
 ** Alerts
 #+BEGIN_SRC emacs-lisp
-
   (mu4e-alert-set-default-style 'libnotify)
-  (setq mu4e-enable-mode-line t)
-
-  (setq mu4e-alert-interesting-mail-query
-        (concat
-         "flag:unread"
-         " AND maildir:\"/INBOX\""))
 #+END_SRC
 * Feed reader (elfeed)
 
