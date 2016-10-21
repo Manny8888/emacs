@@ -31,12 +31,6 @@
 
     I don't work much with emacs-lisp, so the scratch buffer shouldn't be in emacs-lisp mode:
 
-    Write customization elsewhere, don't load it.
-
-    #+BEGIN_SRC emacs-lisp
-      (setq custom-file (concat user-emacs-directory "customize.el"))
-    #+END_SRC
-
     Emacs "kills" and "yanks" instead of cutting and pasting. Using this, we can ~C-w~ and that will kill the active region (whatever you have selected). If you haven't selected anything, it'll kill the line it's on.
     #+BEGIN_SRC emacs-lisp
       ;; http://emacs-fu.blogspot.co.uk/2009/11/copying-lines-without-selecting-them.html
