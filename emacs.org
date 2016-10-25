@@ -89,8 +89,13 @@
        :config
        (setq password-store-password-length 20))
    #+END_SRC
-** Auto indent
 
+** Visual lines
+Turn on visual line mode globally:
+#+BEGIN_SRC emacs-lisp
+  (global-visual-line-mode)
+#+END_SRC
+** Auto indent
    [[https://github.com/Malabarba/aggressive-indent-mode][Aggressive indent mode]] keeps code indented automatically, even after rearranging stuff:
 
    #+BEGIN_SRC emacs-lisp
