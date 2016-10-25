@@ -66,7 +66,10 @@ values."
             " AND maildir:\"/INBOX\""))
      (org :variables
           org-directory "~/Dropbox/org/"
-          org-agenda-files (list (concat org-directory "todo.org")))
+          org-agenda-files (list (concat org-directory "todo.org")
+                                 "~/Dropbox/bibliography/notes.org"
+                                 (concat org-directory "projects.org"))
+          org-projectile-file (concat org-directory "projects.org"))
      pdf-tools
      python
      (shell :variables
