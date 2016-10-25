@@ -646,8 +646,6 @@ Magit is better than the command line for git. I don't modify much. I just bind 
       ("d" . mu4e-view-mark-for-delete)
       :map mu4e-main-mode-map
       ("q" . mu4e-quit-session))
-     (add-hook 'after-init-hook
-               (lambda () (mu4e t))) ; starts mu4e when Emacs starts, but silently
      (setq mail-user-agent 'mu4e-user-agent)
      ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
      (setq mu4e-sent-messages-behavior 'delete)
