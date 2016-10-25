@@ -50,6 +50,7 @@ values."
      ess
      finance
      git
+     github
      latex
      markdown
      (mu4e :variables
