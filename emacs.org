@@ -472,6 +472,12 @@ This function ([[http://pragmaticemacs.com/emacs/insert-file-name/][credit]]) le
            org-deadline-warning-days 3)
    #+END_SRC
 
+   Use the whole frame:
+
+   #+BEGIN_SRC emacs-lisp
+     (setq org-agenda-window-setup 'only-window)
+   #+END_SRC
+
    Finally, set up some nice global keybindings for accessing the agenda:
 
    #+BEGIN_SRC emacs-lisp
