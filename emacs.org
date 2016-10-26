@@ -504,8 +504,7 @@ This function ([[http://pragmaticemacs.com/emacs/insert-file-name/][credit]]) le
 
     #+BEGIN_SRC emacs-lisp
       (setq org-capture-templates
-            (quote (
-                    ("s" "store" entry (file+headline (concat org-directory "todo.org") "Tasks")
+            (quote (("s" "store" entry (file+headline (concat org-directory "todo.org") "Tasks")
                      "* TODO %?\n   %a")
                     ("t" "task" entry (file+headline (concat org-directory "todo.org") "Tasks")
                      "* TODO %?")
@@ -589,6 +588,8 @@ Org-eww lets me capture eww webpages with org-mode
   ESS (Emacs Speaks Statistics) is a [[http://ess.r-project.org/][great project]] and makes Emacs speak with R.
 
   #+BEGIN_SRC emacs-lisp
+    (use-package ess
+      :config
       (setq ess-eval-visibly 'nowait)
       (setq ess-ask-for-ess-directory nil)
       (setq ess-eldoc-show-on-symbol t)
@@ -600,9 +601,9 @@ Org-eww lets me capture eww webpages with org-mode
         (just-one-space 1)
         (insert "%>%")
         (ess-newline-and-indent))
-    ;; (define-key ess-mode-map (kbd "M-p") #'my/add-pipe)
-    ;; (define-key ess-mode-map (kbd "C-h h") #'ess-help)
-    ;; (define-key inferior-ess-mode-map (kbd "C-h h") #'ess-help)
+      (define-key ess-mode-map (kbd "M-p") #'my/add-pipe)
+      (define-key ess-mode-map (kbd "C-h h") #'ess-help)
+      (define-key inferior-ess-mode-map (kbd "C-h h") #'ess-help))
   #+END_SRC
 
 * Electric operator
@@ -614,6 +615,7 @@ Electric operator will turn ~a=10*5+2~ into ~a = 10 * 5 + 2~, so let's enable it
       :config
       (setq electric-operator-R-named-argument-style 'spaced)
       (add-hook 'ess-mode-hook #'electric-operator-mode)
+      (add-hook 'inferior-ess-mode-hook #'electric-operator-mode)
       (add-hook 'python-mode-hook #'electric-operator-mode))
   #+END_SRC
 * Markdown
