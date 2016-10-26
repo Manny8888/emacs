@@ -3,13 +3,6 @@
 #+title: Emacs settings
 
 * Behavior 
-  Tell emacs a bit about ourselves:
-  #+BEGIN_SRC emacs-lisp
-    (setq
-     user-mail-address "branham@utexas.edu"
-     user-full-name  "Alex Branham")
-  #+END_SRC
-
   I use ~desktop-clear~ to get rid of buffers and other things every now and then. Let's bind it to f12:
 
   #+BEGIN_SRC emacs-lisp
@@ -42,6 +35,12 @@
                  (line-beginning-position 2)))))
 
       (bind-key "C-w" 'kill-region)
+    #+END_SRC
+
+    Turn off minor modes on the modeline:
+
+    #+BEGIN_SRC emacs-lisp
+      (spacemacs/toggle-mode-line-minor-modes-off)
     #+END_SRC
 
 ** File finder (Dired)
