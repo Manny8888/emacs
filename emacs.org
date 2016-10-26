@@ -330,7 +330,7 @@ This function ([[http://pragmaticemacs.com/emacs/insert-file-name/][credit]]) le
               (insert (file-relative-name filename)))))
    #+END_SRC
 
-* References (ivy-bibtex)
+* References (bibtex-completion) (org-ref)
    #+BEGIN_SRC emacs-lisp
      (setq org-ref-default-bibliography '("~/Dropbox/bibliography/references.bib")
            org-ref-pdf-directory "~/Dropbox/bibliography/bibtex-pdfs/"
@@ -338,7 +338,7 @@ This function ([[http://pragmaticemacs.com/emacs/insert-file-name/][credit]]) le
      (setq bibtex-completion-bibliography '("~/Dropbox/bibliography/references.bib")
            bibtex-completion-library-path "~/Dropbox/bibliography/bibtex-pdfs"
            bibtex-completion-notes-path "~/Dropbox/bibliography/notes.org")
-     (bind-keys* ("C-c C-r" . ivy-bibtex))
+     (bind-keys* ("C-c C-r" . org-ref-helm-insert-cite-link))
      (setq bibtex-autokey-titleword-length 0
            bibtex-autokey-titleword-separator ""
            bibtex-autokey-titlewords 0
@@ -348,19 +348,19 @@ This function ([[http://pragmaticemacs.com/emacs/insert-file-name/][credit]]) le
      (setq bibtex-completion-notes-template-one-file
            "\n* TODO ${year} - ${title}\n  :PROPERTIES:\n  :Custom_ID: ${=key=}\n  :AUTHOR: ${author}\n  :JOURNAL: ${journal}\n  :YEAR: ${year}\n  :VOLUME: ${volume}\n  :PAGES: ${pages}\n  :DOI: ${doi}\n  :URL: ${url}\n :END:\n")
      (setq bibtex-completion-cite-commands '("autocite" "textcite" "citep" "citet" "citeauthor" "citeyear" "Citep" "Citet"))
-     (setq ivy-bibtex-default-action #'ivy-bibtex-insert-citation)
+     (setq helm-bibtex-full-frame nil)
 
      ;; temporary fix so that I can bind C-c C-r globally yet still have
      ;; ivy-bibtex insert autocite: citations in org-mode
-     (defun bibtex-completion-format-citation-org-autocite (keys)
-       "Formatter for org autocite references."
-       (s-join ", "
-               (--map (format "autocite:%s" it) keys)))
-     (setq bibtex-completion-format-citation-functions
-           '((org-mode . bibtex-completion-format-citation-org-autocite)
-             (latex-mode . bibtex-completion-format-citation-cite)
-             (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
-             (default . bibtex-completion-format-citation-default)))
+     ;; (defun bibtex-completion-format-citation-org-autocite (keys)
+     ;;   "Formatter for org autocite references."
+     ;;   (s-join ", "
+     ;;           (--map (format "autocite:%s" it) keys)))
+     ;; (setq bibtex-completion-format-citation-functions
+     ;;       '((org-mode . bibtex-completion-format-citation-org-autocite)
+     ;;         (latex-mode . bibtex-completion-format-citation-cite)
+     ;;         (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
+     ;;         (default . bibtex-completion-format-citation-default)))
    #+END_SRC
 
 * Org
