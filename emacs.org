@@ -75,6 +75,48 @@ Emacs can be a window manager for X. Yes, really.
     (exwm-enable))
 #+END_SRC
 
+#+BEGIN_SRC emacs-lisp
+  (defun my/mute ()
+    "Mute"
+    (interactive)
+    (start-process "" nil "pa-adjust" "mute"))
+  (bind-key "<XF86AudioMute>" #'my/mute)
+
+  (defun my/volume-up ()
+    "Volume up"
+    (interactive)
+    (start-process "" nil "pa-adjust" "plus"))
+
+  (bind-key "<XF86AudioRaiseVolume>" #'my/volume-up)
+
+  (defun my/volume-down ()
+    "Volume down"
+    (interactive)
+    (start-process "" nil "pa-adjust" "minus"))
+
+  (bind-key "<XF86AudioLowerVolume>" #'my/volume-up)
+
+  (defun my/mute-mic ()
+    "Toggle mic mute status"
+    (interactive)
+    (start-process "" nil "pactl" "set-source-mute 1 toggle"))
+
+  (bind-key "<XF86AudioMicMute>" #'my/mute-mic)
+
+  (defun my/brightness-up ()
+    "Raise screen brightness"
+    (interactive)
+    (start-process "" nil "light" "-p -A 10"))
+
+  (defun my/brightness-down ()
+    "Raise screen brightness"
+    (interactive)
+    (start-process "" nil "light" "-p -U 10"))
+
+  (bind-key "<XF86MonBrightnessUp>" #'my/brightness-up)
+  (bind-key "<XF86MonBrightnessDown>" #'my/brightness-down)
+#+END_SRC
+
 * Behavior
   Change some of emacs's defaults because they suck:
   #+BEGIN_SRC emacs-lisp
