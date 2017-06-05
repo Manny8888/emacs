@@ -24,14 +24,6 @@ Emacs can be a window manager for X. Yes, really.
                   (start-process-shell-command
                    "xrandr" nil "xrandr --output DP-2 --right-of eDP-1 --auto")))
       (exwm-randr-enable))
-    ;; Compositing manager
-    ;; (use-package exwm-cm
-    ;;   :config
-    ;;   ;; Make (and )ll Emacs frames opaque.
-    ;;   (setq window-system-default-frame-alist '((x . ((alpha . 100)))))
-    ;;   ;; Assign everything else a 80% opacity.
-    ;;   (setq exwm-cm-opacity 80)
-    ;;   (exwm-cm-enable))
     ;; System tray
     (use-package exwm-systemtray
       :config
