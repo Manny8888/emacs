@@ -1027,7 +1027,7 @@ Emacs thinks that some new users may find some commands confusing, so they're di
 Oftentimes the mouse just gets in the way. Since I rarely use the mouse, let's banish it to the upper right corner whenever I type a key in Emacs:
 
 #+BEGIN_SRC emacs-lisp
-  (mouse-avoidance-mode 'banish)
+  (mouse-avoidance-mode nil)
 #+END_SRC
 
 *** Prettify symbols
