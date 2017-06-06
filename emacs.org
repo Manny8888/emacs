@@ -19,7 +19,7 @@ Emacs can be a window manager for X. Yes, really.
     (defun my/lock-screen ()
       "Lock screen"
       (interactive)
-      (shell-command "i3lock"))
+      (shell-command "i3lock  -c 000000"))
     ;; Xrandr (multi-screen)
     (use-package exwm-randr
       :config
