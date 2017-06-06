@@ -112,12 +112,12 @@ Emacs can be a window manager for X. Yes, really.
   (defun my/brightness-up ()
     "Raise screen brightness"
     (interactive)
-    (start-process "" nil "light" "-p -A 10"))
+    (start-process "" nil "light" "-p" "-A" "10"))
 
   (defun my/brightness-down ()
     "Raise screen brightness"
     (interactive)
-    (start-process "" nil "light" "-p -U 10"))
+    (start-process "" nil "light" "-p" "-U" "10"))
 
   (bind-key "<XF86MonBrightnessUp>" #'my/brightness-up)
   (bind-key "<XF86MonBrightnessDown>" #'my/brightness-down)
