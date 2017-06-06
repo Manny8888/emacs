@@ -32,6 +32,7 @@ Emacs can be a window manager for X. Yes, really.
     ;; System tray
     (use-package exwm-systemtray
       :config
+      (setq exwm-systemtray-height 20)
       (start-process "" nil "nm-applet")
       (exwm-systemtray-enable))
     (setq exwm-workspace-number 2)
