@@ -107,9 +107,12 @@ Emacs can be a window manager for X. Yes, really.
     (exwm-input-set-key (kbd "<XF86MonBrightnessUp>") #'my/brightness-up)
     (exwm-input-set-key (kbd "<XF86MonBrightnessDown>") #'my/brightness-down)
     (exwm-input-set-key (kbd "s-l") #'my/lock-screen)
-
     ;; Enable EXWM
-    (exwm-enable))
+    (exwm-enable)
+    ;; Start some daemons:
+    (start-process "" nil "systemctl" "--user" "start" "davmail@alex.service")
+    (start-process "" nil "systemctl" "--user" "start" "dropbox.service")
+    (start-process "" nil "systemctl" "--user" "start" "redshift.service"))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
