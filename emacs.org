@@ -14,6 +14,7 @@ Emacs can be a window manager for X. Yes, really.
 #+BEGIN_SRC emacs-lisp
   (use-package exwm
     :ensure t
+    :if (getenv "USE_EXWM")
     :config
     (defun my/lock-screen ()
       "Lock screen"
@@ -113,9 +114,6 @@ Emacs can be a window manager for X. Yes, really.
     (start-process "" nil "systemctl" "--user" "start" "davmail@alex.service")
     (start-process "" nil "systemctl" "--user" "start" "dropbox.service")
     (start-process "" nil "systemctl" "--user" "start" "redshift.service"))
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp
 #+END_SRC
 
 * Behavior
