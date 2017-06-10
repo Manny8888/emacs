@@ -93,7 +93,7 @@ Emacs can be a window manager for X. Yes, really.
     (defun my/mute-mic ()
       "Toggle mic mute status"
       (interactive)
-      (start-process "" nil "pactl" "set-source-mute 1 toggle"))
+      (start-process "" nil "pactl" "set-source-mute" "1" "toggle"))
     (defun my/brightness-up ()
       "Raise screen brightness"
       (interactive)
