@@ -105,6 +105,7 @@ Emacs can be a window manager for X. Yes, really.
     (exwm-input-set-key (kbd "<XF86AudioMute>") #'my/mute)
     (exwm-input-set-key (kbd "<XF86AudioRaiseVolume>") #'my/volume-up)
     (exwm-input-set-key (kbd "<XF86AudioLowerVolume>") #'my/volume-down)
+    (exwm-input-set-key (kbd "<XF86AudioMicMute>") #'my/mute-mic)
     (exwm-input-set-key (kbd "<XF86MonBrightnessUp>") #'my/brightness-up)
     (exwm-input-set-key (kbd "<XF86MonBrightnessDown>") #'my/brightness-down)
     (exwm-input-set-key (kbd "s-l") #'my/lock-screen)
