@@ -16,10 +16,6 @@ Emacs can be a window manager for X. Yes, really.
     :ensure t
     :if (getenv "USE_EXWM")
     :config
-    (defun my/lock-screen ()
-      "Lock screen"
-      (interactive)
-      (shell-command "i3lock  -c 000000"))
     ;; Xrandr (multi-screen)
     (use-package exwm-randr
       :config
@@ -78,6 +74,7 @@ Emacs can be a window manager for X. Yes, really.
        ([?\C-v] . next)
        ([?\C-d] . delete)
        ([?\C-k] . (S-end delete))))
+    ;; Define some and map them to keys:
     (defun my/mute ()
       "Mute"
       (interactive)
@@ -102,6 +99,10 @@ Emacs can be a window manager for X. Yes, really.
       "Raise screen brightness"
       (interactive)
       (start-process "" nil "light" "-p" "-U" "10"))
+    (defun my/lock-screen ()
+      "Lock screen"
+      (interactive)
+      (shell-command "i3lock  -c 000000"))
     (exwm-input-set-key (kbd "<XF86AudioMute>") #'my/mute)
     (exwm-input-set-key (kbd "<XF86AudioRaiseVolume>") #'my/volume-up)
     (exwm-input-set-key (kbd "<XF86AudioLowerVolume>") #'my/volume-down)
